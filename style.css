@@ -1,0 +1,89 @@
+/* The business site: Melos colours (warm paper and indigo; near-black and amber in dark mode). No cookies, no tracking. */
+:root {
+  --bg: #fbf8f5;
+  --surface: #ffffff;
+  --surface-2: #f1edea;
+  --text: #1c1b1f;
+  --muted: #5a5660;
+  --outline: #e2ddd8;
+  --accent: #4351b5;
+  --on-accent: #ffffff;
+  --accent-soft: #e1e4ff;
+  --radius: 16px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121214;
+    --surface: #1a1a1d;
+    --surface-2: #232328;
+    --text: #e6e1e5;
+    --muted: #b9b5c0;
+    --outline: #34343a;
+    --accent: #ffb86b;
+    --on-accent: #4a2800;
+    --accent-soft: #3b2a14;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+}
+a { color: var(--accent); }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+header.top { border-bottom: 1px solid var(--outline); background: var(--surface); }
+header.top .wrap { display: flex; align-items: center; gap: 16px; min-height: 64px; flex-wrap: wrap; }
+.brand { font-weight: 700; font-size: 18px; text-decoration: none; color: var(--text); }
+nav.links { display: flex; gap: 18px; flex-wrap: wrap; flex: 1; justify-content: flex-end; }
+nav.links a { color: var(--muted); text-decoration: none; font-size: 15px; }
+nav.links a:hover { color: var(--text); }
+.lang { font-size: 14px; border: 1px solid var(--outline); border-radius: 999px; padding: 3px 12px; text-decoration: none; color: var(--text); }
+
+.hero { padding: 64px 0 40px; }
+.hero h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 0 0 14px; letter-spacing: -0.01em; }
+.hero p { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0 0 24px; }
+.button { display: inline-block; background: var(--accent); color: var(--on-accent); text-decoration: none; font-weight: 600; padding: 11px 22px; border-radius: 999px; }
+.button.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); margin-left: 8px; }
+
+section { padding: 32px 0; }
+section h2 { font-size: 26px; margin: 0 0 18px; }
+
+.app { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; background: var(--surface); border: 1px solid var(--outline); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; }
+.app-head { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.app-head img { width: 56px; height: 56px; border-radius: 14px; }
+.app-head h3 { margin: 0; font-size: 24px; }
+.app-head .tag { font-size: 13px; color: var(--muted); }
+.app ul { padding-left: 20px; margin: 12px 0 18px; }
+.app li { margin-bottom: 6px; }
+.soon { display: inline-block; font-size: 14px; font-weight: 600; padding: 6px 14px; border-radius: 999px; background: var(--accent-soft); }
+.shots { display: flex; gap: 12px; justify-content: center; }
+.shots img { width: 31%; max-width: 170px; border-radius: 14px; border: 1px solid var(--outline); box-shadow: 0 6px 24px rgb(0 0 0 / 0.12); }
+.app.small { grid-template-columns: 1fr; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--outline); border-radius: var(--radius); padding: 20px; }
+.card h3 { margin: 0 0 6px; font-size: 18px; }
+.card p { margin: 0; color: var(--muted); }
+
+dl.legal { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; background: var(--surface); border: 1px solid var(--outline); border-radius: var(--radius); padding: 22px; margin: 0; }
+dl.legal dt { color: var(--muted); }
+dl.legal dd { margin: 0; font-weight: 500; }
+
+footer { border-top: 1px solid var(--outline); margin-top: 40px; padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
+
+@media (max-width: 720px) {
+  .hero { padding: 40px 0 24px; }
+  .app { grid-template-columns: 1fr; padding: 20px; }
+  nav.links { justify-content: flex-start; }
+  dl.legal { grid-template-columns: 1fr; gap: 2px; }
+  dl.legal dd { margin-bottom: 10px; }
+  .button.ghost { margin: 10px 0 0; }
+}
